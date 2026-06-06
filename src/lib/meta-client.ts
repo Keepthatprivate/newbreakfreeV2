@@ -158,3 +158,20 @@ declare global {
     ) => void;
   }
 }
+
+// Compatibility aliases for quiz components migrated from v1
+export async function trackViewContent(data: { contentName?: string; url?: string } = {}) {
+  return trackAndSend("ViewContent", { content_type: data.contentName });
+}
+
+export async function trackLead(data: { email?: string } = {}) {
+  return trackAndSend("CompleteRegistration", { email: data.email });
+}
+
+export async function trackInitiateCheckout(data: { value?: number; currency?: string } = {}) {
+  return trackAndSend("InitiateCheckout", { value: data.value, currency: data.currency });
+}
+
+export function getFacebookCookies() {
+  return getFbpFbc();
+}

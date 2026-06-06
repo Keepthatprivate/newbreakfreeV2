@@ -3,12 +3,12 @@ import { Button } from '@/components/ui/button';
 import { Slider } from '@/components/ui/slider';
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
 import { Info } from 'lucide-react';
-import type { Question } from '@shared/quiz-data';
+import type { Question } from '../data/quiz-data';
 import AudioPlayer from './AudioPlayer';
 import VisualPattern from './VisualPattern';
-import footstepsAudio from '@assets/footsteps_short.mp3';
-import doorClosingAudio from '@assets/doors_PZuanhr_1761859927075.mp3';
-import geometricPattern from '@assets/pexels-golnar-sabzpoush-rashidi-1317651-2530383_1761955317513.jpg';
+const footstepsAudio = '/audio/footsteps_short.mp3';
+const doorClosingAudio = '/audio/doors.mp3';
+const geometricPattern = '/images/quiz/pexels-golnar-sabzpoush-rashidi-1317651-2530383_1761955317513.jpg';
 
 interface QuestionCardProps {
   question: Question;

@@ -1,7 +1,7 @@
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Check, X } from 'lucide-react';
 import { useState, useEffect } from 'react';
-import { trackViewContent } from '@/lib/facebook-tracking';
+import { trackViewContent } from '@/lib/meta-client';
 
 interface QuizAnswers {
   [questionId: string]: string[];

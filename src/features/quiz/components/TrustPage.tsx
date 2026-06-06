@@ -1,10 +1,10 @@
 import { Star, Users, Heart, Smartphone, Bell } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
-import { trackViewContent } from '@/lib/facebook-tracking';
+import { trackViewContent } from '@/lib/meta-client';
 import { motion, AnimatePresence } from 'framer-motion';
 
-import marieImage from '@assets/stock_images/young_woman_casual_s_b2572404.jpg';
+const marieImage = '/images/quiz/young_woman_casual_s_b2572404.jpg';
 
 interface TrustPageProps {
   onContinue: () => void;

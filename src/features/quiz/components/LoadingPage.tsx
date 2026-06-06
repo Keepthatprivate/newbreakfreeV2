@@ -1,16 +1,16 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
-import { trackViewContent } from '@/lib/facebook-tracking';
+import { trackViewContent } from '@/lib/meta-client';
 
 // Import diverse profile images - these should NOT overlap with TestimonialsPage images
-import lisaImage from '@assets/stock_images/professional_woman_s_d4fbbe22.jpg';
-import annaImage from '@assets/stock_images/young_woman_casual_s_b2572404.jpg';
-import rachelImage from '@assets/stock_images/young_woman_casual_s_cb2bd61f.jpg';
-import jamesImage from '@assets/stock_images/professional_black_m_06705ed8.jpg';
-import michaelImage from '@assets/stock_images/young_man_casual_sel_cfbef95c.jpg';
-import emilyImage from '@assets/stock_images/young_woman_smiling__c268d950.jpg';
-import davidImage from '@assets/stock_images/young_man_casual_sel_fecd2253.jpg';
+const lisaImage = '/images/quiz/professional_woman_s_d4fbbe22.jpg';
+const annaImage = '/images/quiz/young_woman_casual_s_b2572404.jpg';
+const rachelImage = '/images/quiz/young_woman_casual_s_cb2bd61f.jpg';
+const jamesImage = '/images/quiz/professional_black_m_06705ed8.jpg';
+const michaelImage = '/images/quiz/young_man_casual_sel_cfbef95c.jpg';
+const emilyImage = '/images/quiz/young_woman_smiling__c268d950.jpg';
+const davidImage = '/images/quiz/young_man_casual_sel_fecd2253.jpg';
 
 interface LoadingPageProps {
   onComplete: () => void;

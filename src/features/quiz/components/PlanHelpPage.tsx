@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { trackViewContent } from '@/lib/facebook-tracking';
+import { trackViewContent } from '@/lib/meta-client';
 import { AlertCircle, HeartCrack, UserX, Flame, Waves, Lock, Check } from 'lucide-react';
 
 interface PlanHelpPageProps {

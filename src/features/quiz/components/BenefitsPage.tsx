@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { trackViewContent } from '@/lib/facebook-tracking';
+import { trackViewContent } from '@/lib/meta-client';
 import { Shield, Heart, Sparkles } from 'lucide-react';
 
 interface BenefitsPageProps {

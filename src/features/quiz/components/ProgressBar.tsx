@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import { chapters } from '@shared/quiz-data';
+import { chapters } from '../data/quiz-data';
 
 interface ProgressBarProps {
   currentChapter: string;

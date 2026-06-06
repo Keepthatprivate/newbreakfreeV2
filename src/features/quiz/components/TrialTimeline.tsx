@@ -1,6 +1,6 @@
 import { Check, Lock, Bell, Shield } from 'lucide-react';
 import { useEffect } from 'react';
-import { trackViewContent } from '@/lib/facebook-tracking';
+import { trackViewContent } from '@/lib/meta-client';
 
 interface TrialTimelineProps {
   onStartTrial: () => void;

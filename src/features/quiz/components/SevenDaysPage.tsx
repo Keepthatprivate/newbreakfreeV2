@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { trackViewContent } from '@/lib/facebook-tracking';
+import { trackViewContent } from '@/lib/meta-client';
 import { ScanEye, Repeat, KeyRound, Clock } from 'lucide-react';
 
 interface SevenDaysPageProps {

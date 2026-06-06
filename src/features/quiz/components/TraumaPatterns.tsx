@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Heart, Bird, Users, Moon } from 'lucide-react';
-import { trackViewContent } from '@/lib/facebook-tracking';
+import { trackViewContent } from '@/lib/meta-client';
 
 interface TraumaPatternsProps {
   onContinue: () => void;

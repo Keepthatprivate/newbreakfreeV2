@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { ChevronDown } from 'lucide-react';
-import { trackViewContent } from '@/lib/facebook-tracking';
+import { trackViewContent } from '@/lib/meta-client';
 
 interface FAQPageProps {
   onContinue: () => void;
