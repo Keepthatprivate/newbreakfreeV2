@@ -1,20 +1,20 @@
 export const SiteConfig = {
-  title: "BoilerSaaS",
-  description: "Astrology and tarot readings for your soul",
-  prodUrl: "https://boilersaas.com",
-  appId: "boilersaas",
-  domain: "boilersaas.com",
+  title: "Break Free",
+  description: "Discover the hidden childhood patterns still influencing your relationships, decisions, and emotional well-being today.",
+  prodUrl: "https://break-free-app.com",
+  appId: "breakfree",
+  domain: "break-free-app.com",
   appIcon: "/images/icon.png",
   company: {
-    name: "BoiletSaaS",
-    address: "911 Street, New York, NY, USA", // Remove if not needed
+    name: "Break Free",
+    address: "",
   },
   brand: {
-    primary: "#007291", // You can adjust this to your brand color
+    primary: "#4ECDC4", // Teal - couleur principale du site original
   },
   team: {
-    name: "Prenom",
-    website: "https://boilersaas.com",
+    name: "Break Free",
+    website: "https://break-free-app.com",
   },
   features: {
     /**
