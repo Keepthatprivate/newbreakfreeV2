@@ -1,0 +1,88 @@
+// Meta Pixel / Conversions API Tracking Models
+
+/// Session de tracking liée à un navigateur via les cookies Meta
+/// Permet de corréler les événements d'un même utilisateur
+model TrackingSession {
+  id             String    @id @default(cuid())
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime  @updatedAt
+
+  // Identifiants Meta Pixel
+  fbp            String?   // cookie _fbp (fb.1.timestamp.random)
+  fbc            String?   // cookie _fbc (fb.1.timestamp.fbclid)
+
+  // Informations navigateur
+  userAgent      String?
+  ip             String?
+
+  // Identité utilisateur (si connecté)
+  userId         String?
+  emailHash      String?   // SHA-256 de l'email
+  phoneHash      String?   // SHA-256 du téléphone
+  externalIdHash String?   // SHA-256 de l'ID externe
+
+  // Métriques
+  lastEventAt    DateTime?
+  eventCount     Int       @default(0)
+
+  // Relations
+  EventLogs      EventLog[]
+
+  @@index([fbp])
+  @@index([userId])
+}
+
+/// Log de chaque événement envoyé à Meta (pour debug et audit)
+model EventLog {
+  id          String   @id @default(cuid())
+  createdAt   DateTime @default(now())
+
+  // Corrélation avec la session
+  trackingId  String?
+  tracking    TrackingSession? @relation(fields: [trackingId], references: [id])
+
+  // Détails de l'événement
+  eventName   String    // ViewContent, Purchase, etc.
+  eventId     String    // UUID pour déduplication
+  source      String    // "browser" ou "server"
+
+  // Payloads pour debug (PII redacted)
+  requestJson  Json?
+  responseJson Json?
+  statusCode   Int?
+  success      Boolean   @default(false)
+
+  @@index([eventId])
+  @@index([eventName])
+  @@index([source])
+  @@index([createdAt])
+}
+
+/// Liaison entre Stripe et Meta pour éviter les doublons Purchase
+model CheckoutLinkage {
+  id              String   @id @default(cuid())
+  createdAt       DateTime @default(now())
+
+  // ID Stripe (Checkout Session ID)
+  stripeSessionId String   @unique
+
+  // Cookies Meta au moment du checkout
+  fbp             String?
+  fbc             String?
+  fbEventId       String?   // event_id de InitiateCheckout
+
+  // Identité
+  userId          String?
+  emailHash       String?
+
+  // Infos client pour améliorer l'Event Match Quality (+20%)
+  clientIp        String?
+  userAgent       String?
+
+  // Tracking de l'envoi Purchase
+  purchaseSent    Boolean   @default(false)
+  purchaseSentAt  DateTime?
+
+  @@index([stripeSessionId])
+  @@index([userId])
+}
