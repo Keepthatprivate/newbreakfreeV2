@@ -1,6 +1,6 @@
 import type { User } from "better-auth";
 import { env } from "../env";
-import { resend } from "../mail/resend";
+import { getResend } from "../mail/resend";
 import { prisma } from "../prisma";
 
 export const setupResendCustomer = async (user: User) => {
@@ -12,7 +12,7 @@ export const setupResendCustomer = async (user: User) => {
     return;
   }
 
-  const contact = await resend.contacts.create({
+  const contact = await getResend().contacts.create({
     audienceId: env.RESEND_AUDIENCE_ID,
     email: user.email,
     firstName: user.name || "",

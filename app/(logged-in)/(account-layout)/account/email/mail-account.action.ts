@@ -3,7 +3,7 @@
 import { authAction } from "@/lib/actions/safe-actions";
 import { ActionError } from "@/lib/errors/action-error";
 import { logger } from "@/lib/logger";
-import { resend } from "@/lib/mail/resend";
+import { getResend } from "@/lib/mail/resend";
 import { prisma } from "@/lib/prisma";
 import { env } from "process";
 import { z } from "zod";
@@ -34,7 +34,7 @@ export const toggleSubscribedAction = authAction
       throw new ActionError("User has no resend contact id");
     }
 
-    const updateContact = await resend.contacts.update({
+    const updateContact = await getResend().contacts.update({
       audienceId: env.RESEND_AUDIENCE_ID,
       id: user.resendContactId,
       unsubscribed: input.unsubscribed,

@@ -7,7 +7,7 @@ export default function LandingPage() {
   const router = useRouter();
 
   const handleStartQuiz = () => {
-    setLocation('/intro');
+    router.push('/quiz');
   };
 
   return (

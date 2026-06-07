@@ -67,9 +67,9 @@ export const ContactSupportDialog = (props: ContactSupportDialogProps) => {
             Fill the form bellow or send an email to{" "}
             <Link
               className="text-primary"
-              href={`mailto:${env.NEXT_PUBLIC_EMAIL_CONTACT}`}
+              href={`mailto:${env.NEXT_PUBLIC_EMAIL_CONTACT ?? "contact@break-free-app.com"}`}
             >
-              {env.NEXT_PUBLIC_EMAIL_CONTACT}
+              {env.NEXT_PUBLIC_EMAIL_CONTACT ?? "contact@break-free-app.com"}
             </Link>
             .
           </DialogDescription>
